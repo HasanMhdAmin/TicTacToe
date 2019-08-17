@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/tileDark"
     android:padding="20dp">
 
     <androidx.core.widget.ContentLoadingProgressBar
@@ -24,6 +24,7 @@
         android:layout_toRightOf="@+id/loader"
         android:gravity="center_vertical"
         android:padding="10dp"
+        android:textColor="@color/dialogBackground"
         android:text="@string/ai_is_processing_the_next_step" />
 
 </RelativeLayout>

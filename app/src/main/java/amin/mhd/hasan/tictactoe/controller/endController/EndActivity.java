@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import amin.mhd.hasan.tictactoe.R;
 import amin.mhd.hasan.tictactoe.controller.endController.enums.GameResult;
 import amin.mhd.hasan.tictactoe.controller.gameController.GameActivity;
+import amin.mhd.hasan.tictactoe.utils.DateUtils;
 
 import static amin.mhd.hasan.tictactoe.controller.endController.enums.Keys.GAME_RESULT;
 import static amin.mhd.hasan.tictactoe.controller.endController.enums.Keys.TIME_OF_THINKING;
@@ -68,8 +69,10 @@ public class EndActivity extends AppCompatActivity implements View.OnClickListen
                 result.setText(getString(R.string.it_is_a_tie));
                 break;
         }
+        String readableTimeDuration = getString(R.string.time_of_thinking) + "  "
+                + DateUtils.convertTimestampToReadableDuration(durationOfThinking);
 
-        timeOfThinking.setText(durationOfThinking + "");
+        timeOfThinking.setText(readableTimeDuration);
 
     }
 

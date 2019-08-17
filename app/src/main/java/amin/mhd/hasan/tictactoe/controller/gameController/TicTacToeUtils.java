@@ -10,7 +10,7 @@ import amin.mhd.hasan.tictactoe.model.Player;
  */
 public class TicTacToeUtils {
 
-    public static ArrayList<Integer> getFirstRow() {
+    private static ArrayList<Integer> getFirstRow() {
         ArrayList<Integer> firstRow = new ArrayList<>();
         firstRow.add(1);
         firstRow.add(2);
@@ -18,7 +18,7 @@ public class TicTacToeUtils {
         return firstRow;
     }
 
-    public static ArrayList<Integer> getSecondRow() {
+    private static ArrayList<Integer> getSecondRow() {
         ArrayList<Integer> secondRow = new ArrayList<>();
         secondRow.add(4);
         secondRow.add(5);
@@ -26,7 +26,7 @@ public class TicTacToeUtils {
         return secondRow;
     }
 
-    public static ArrayList<Integer> getThirdRow() {
+    private static ArrayList<Integer> getThirdRow() {
         ArrayList<Integer> thirdRow = new ArrayList<>();
         thirdRow.add(7);
         thirdRow.add(8);
@@ -34,7 +34,7 @@ public class TicTacToeUtils {
         return thirdRow;
     }
 
-    public static ArrayList<Integer> getFirstColumn() {
+    private static ArrayList<Integer> getFirstColumn() {
         ArrayList<Integer> firstColumn = new ArrayList<>();
         firstColumn.add(1);
         firstColumn.add(4);
@@ -42,7 +42,7 @@ public class TicTacToeUtils {
         return firstColumn;
     }
 
-    public static ArrayList<Integer> getSecondColumn() {
+    private static ArrayList<Integer> getSecondColumn() {
         ArrayList<Integer> secondColumn = new ArrayList<>();
         secondColumn.add(2);
         secondColumn.add(5);
@@ -50,7 +50,7 @@ public class TicTacToeUtils {
         return secondColumn;
     }
 
-    public static ArrayList<Integer> getThirdColumn() {
+    private static ArrayList<Integer> getThirdColumn() {
         ArrayList<Integer> thirdColumn = new ArrayList<>();
         thirdColumn.add(3);
         thirdColumn.add(6);
@@ -58,15 +58,15 @@ public class TicTacToeUtils {
         return thirdColumn;
     }
 
-    public static ArrayList<Integer> getDiagonal() {
+    private static ArrayList<Integer> getDiagonal() {
         ArrayList<Integer> thirdColumn = new ArrayList<>();
         thirdColumn.add(1);
         thirdColumn.add(5);
-        thirdColumn.add(6);
+        thirdColumn.add(9);
         return thirdColumn;
     }
 
-    public static ArrayList<Integer> getAntiDiagonal() {
+    private static ArrayList<Integer> getAntiDiagonal() {
         ArrayList<Integer> thirdColumn = new ArrayList<>();
         thirdColumn.add(3);
         thirdColumn.add(5);

@@ -18,4 +18,5 @@
     <string name="player_2_name">Computer</string>
     <string name="turn">Turn:</string>
     <string name="ai_is_processing_the_next_step">AI is processing the next step.</string>
+    <string name="duration">Duration</string>
 </resources>

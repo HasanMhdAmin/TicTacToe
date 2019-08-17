@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#000000</color>
+    <color name="colorAccent">#ffffff</color>
 
 
     <color name="backgroundDark">#1e1e1e</color>
@@ -12,5 +12,6 @@
     <color name="white">#fff</color>
     <color name="player1">#1E88E5</color>
     <color name="player2">#FB8C00</color>
+    <color name="colorGreen">#7CB342</color>
 
 </resources>

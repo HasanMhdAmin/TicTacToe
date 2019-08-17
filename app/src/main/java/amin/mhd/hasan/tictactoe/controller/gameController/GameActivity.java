@@ -2,6 +2,8 @@ package amin.mhd.hasan.tictactoe.controller.gameController;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.text.Spannable;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,7 @@ import amin.mhd.hasan.tictactoe.controller.endController.enums.GameResult;
 import amin.mhd.hasan.tictactoe.customView.TileView;
 import amin.mhd.hasan.tictactoe.dialog.CustomProgressDialog;
 import amin.mhd.hasan.tictactoe.model.Player;
+import amin.mhd.hasan.tictactoe.utils.DateUtils;
 import amin.mhd.hasan.tictactoe.utils.StorageUtils;
 import amin.mhd.hasan.tictactoe.utils.StringUtils;
 
@@ -37,13 +40,31 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     private static final String TAG = "GameActivity";
 
     ConstraintLayout root;
+    TextView duration;
     TextView gameTitle;
     TextView playerNameTextView;
     List<TileView> tileViews = new ArrayList<>();
     Player currentPlayer;
     Player me;
     Player computer;
-    long timeOfThinking = 1234;
+
+    long millisecondTime, startTime, timeBuff, timeOfThinking = 0L;
+
+    Handler handler;
+    public Runnable runnable = new Runnable() {
+
+        public void run() {
+
+            millisecondTime = SystemClock.uptimeMillis() - startTime;
+            timeOfThinking = timeBuff + millisecondTime;
+            String readableTimeDuration = getString(R.string.duration)
+                    + "  " + DateUtils.convertTimestampToReadableDuration(timeOfThinking);
+            duration.setText(readableTimeDuration);
+
+            handler.postDelayed(this, 0);
+        }
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +73,8 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
 
         findViews();
 
+        handler = new Handler();
+
         createPlayers();
 
         startGame();
@@ -59,7 +82,6 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     }
 
     private void startGame() {
-
 
         // AI player
         playerNameTextView.setText(computer.getPlayerName());
@@ -82,11 +104,12 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     private void findViews() {
         root = findViewById(R.id.root);
         gameTitle = findViewById(R.id.gameTitle);
+        duration = findViewById(R.id.duration);
         playerNameTextView = findViewById(R.id.playerNameTextView);
         setOnClickListenerForAllTileViews(root);
 
         Spannable result = StringUtils.spannableString(gameTitle.getText(), "AI",
-                true, true, "#ffffff");
+                true, true, ContextCompat.getColor(this, R.color.white));
         gameTitle.setText(result);
     }
 
@@ -102,7 +125,6 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
             }
         }
     }
-
 
     @Override
     public void onSelectValue(TileView tileView, ImageView imageView, int value) {
@@ -129,10 +151,10 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
             endActivity.putExtra(GAME_RESULT, gameResult);
             endActivity.putExtra(TIME_OF_THINKING, timeOfThinking);
             startActivity(endActivity);
+            finish();
         } else
             switchTurn();
     }
-
 
     private void switchTurn() {
         int numberOfTakenPlaces = me.getSelectedTiles().size() + computer.getSelectedTiles().size();
@@ -149,10 +171,15 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
         if (currentPlayer == computer) {
             currentPlayer = me;
             color = ContextCompat.getColor(this, R.color.player1);
+            startTime = SystemClock.uptimeMillis();
+            handler.postDelayed(runnable, 0);
+
         } else if (currentPlayer == me) {
             currentPlayer = computer;
             color = ContextCompat.getColor(this, R.color.player2);
             computerNextStep();
+            timeBuff += millisecondTime;
+            handler.removeCallbacks(runnable);
         }
 
         playerNameTextView.setText(currentPlayer.getPlayerName());

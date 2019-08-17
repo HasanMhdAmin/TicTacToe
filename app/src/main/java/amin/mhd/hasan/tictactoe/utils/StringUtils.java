@@ -1,12 +1,9 @@
 package amin.mhd.hasan.tictactoe.utils;
 
-import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
-
-import androidx.annotation.Nullable;
 
 /**
  * Created by Hasan Mhd Amin on 8/17/2019.
@@ -17,7 +14,7 @@ public class StringUtils {
                                             String specificString,
                                             boolean isBold,
                                             boolean isColored,
-                                            @Nullable String colorHEX) {
+                                            int colorRes) {
         Spannable wordToSpan = null;
         try {
             wordToSpan = new SpannableString(allString);
@@ -33,10 +30,7 @@ public class StringUtils {
                     wordToSpan.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, LastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
                 if (isColored) {
-                    if (colorHEX != null)
-                        wordToSpan.setSpan(new ForegroundColorSpan(Color.parseColor(colorHEX)), startIndex, LastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    else
-                        wordToSpan.setSpan(new ForegroundColorSpan(Color.parseColor("#000000")), startIndex, LastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    wordToSpan.setSpan(new ForegroundColorSpan(colorRes), startIndex, LastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 }
                 return wordToSpan;

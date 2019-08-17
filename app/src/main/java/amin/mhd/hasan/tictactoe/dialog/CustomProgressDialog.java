@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import java.util.ArrayList;
@@ -72,15 +73,17 @@ public class CustomProgressDialog extends DialogFragment {
 
         findViews(view);
 
-        Spannable spannable = StringUtils.spannableString(progressText.getText(), "AI",
-                true, true, "#000000");
-        progressText.setText(spannable);
+        if (getContext() != null) {
+            Spannable spannable = StringUtils.spannableString(progressText.getText(), "AI",
+                    true, true, ContextCompat.getColor(getContext(), R.color.white));
+            progressText.setText(spannable);
+        }
 
         ArrayList<Integer> initList = initList();
 
         ArrayList<Integer> availablePlaces = getAvailablePlaces(initList, xValues, oValues);
 
-        int stopAfter = RandomUtils.getRandomIntInRange(3, 6);
+        int stopAfter = RandomUtils.getRandomIntInRange(1, 3); // change it to (3, 8) as required.
         final int place = RandomUtils.getRandomIntFromSet(availablePlaces);
 
         final Handler handler = new Handler();
