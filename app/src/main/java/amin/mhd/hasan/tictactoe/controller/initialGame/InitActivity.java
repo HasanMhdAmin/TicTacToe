@@ -48,9 +48,14 @@ public class InitActivity extends AppCompatActivity implements View.OnClickListe
         findViews();
 
         String playerName = StorageUtils.getPlayerName(this);
-        String welcomeMessage = getString(R.string.hi) + ", " + playerName;
-        welcome.setText(welcomeMessage);
-
+        if (playerName.length() == 0) {
+            ChangeNameDialog changeNameDialog = ChangeNameDialog.newInstance(StorageUtils.getPlayerName(this));
+            changeNameDialog.show(getSupportFragmentManager(), TAG);
+        } else {
+            String welcomeMessage = getString(R.string.hi) + ", " + playerName;
+            welcome.setText(welcomeMessage);
+        }
+        
         String theme = StorageUtils.getTheme(this);
         if (theme.equals(StorageUtils.LIGHT))
             darkModeCheckBox.setChecked(false);

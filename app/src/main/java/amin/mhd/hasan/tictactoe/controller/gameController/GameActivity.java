@@ -87,18 +87,22 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     }
 
     private void startGame() {
-
+        int color = ContextCompat.getColor(this, R.color.player1);
         int randNumber = RandomUtils.getRandomIntInRange(1, 2);
         if (randNumber == 1) {
             // I will start first
+            color = ContextCompat.getColor(this, R.color.player1);
             playerNameTextView.setText(me.getPlayerName());
             currentPlayer = me;
         } else if (randNumber == 2) {
             // AI player
+            color = ContextCompat.getColor(this, R.color.player2);
             playerNameTextView.setText(computer.getPlayerName());
             currentPlayer = computer;
             computerNextStep();
         }
+        playerNameTextView.setTextColor(color);
+
     }
 
     private void computerNextStep() {
@@ -148,7 +152,7 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     public void onSelectValue(TileView tileView, ImageView imageView, int value) {
         Log.d(TAG, "onSelectValue: value: " + value);
         Log.d(TAG, "onSelectValue: currentPlayer: " + currentPlayer.getPlayerName());
-        if(me.getSelectedTiles().contains(value)||computer.getSelectedTiles().contains(value)){
+        if (me.getSelectedTiles().contains(value) || computer.getSelectedTiles().contains(value)) {
             // this means the user click on already selected tile, so i need to ignore this event.
             return;
         }

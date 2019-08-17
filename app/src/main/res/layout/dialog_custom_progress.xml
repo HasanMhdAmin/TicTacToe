@@ -3,24 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/tileColor"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:orientation="vertical">
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loader"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:layout_margin="20dp" />
 
     <TextView
         android:id="@+id/progressText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/loader"
-        android:layout_alignBottom="@+id/loader"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/loader"
         android:gravity="center_vertical"
         android:padding="10dp"

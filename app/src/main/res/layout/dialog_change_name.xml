@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/your_name"
         android:textSize="20sp"
+        android:textColor="@color/textGray"
         android:textStyle="bold" />
 
 
@@ -30,8 +31,10 @@
             android:inputType="text"
             android:maxLength="30"
             android:maxLines="1"
+            android:focusable="true"
             android:padding="10dp"
             android:singleLine="true"
+            android:textColor="@color/textGray"
             android:theme="@style/NameEditText" />
 
     </RelativeLayout>
