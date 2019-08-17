@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorPrimary">#757575</color>
+    <color name="colorPrimaryDark">#4a4a4a</color>
+    <color name="colorAccent">#fff</color>
 
 
     <color name="backgroundDark">#1e1e1e</color>
+    <color name="backgroundLight">#EEEEEE</color>
     <color name="containerBackgroundDark">#333333</color>
     <color name="tileDark">#4a4a4a</color>
+    <color name="tileLight">#CECECE</color>
     <color name="dialogBackground">#CECECE</color>
     <color name="white">#fff</color>
+    <color name="textGray">#757575</color>
     <color name="player1">#1E88E5</color>
     <color name="player2">#FB8C00</color>
     <color name="colorGreen">#7CB342</color>

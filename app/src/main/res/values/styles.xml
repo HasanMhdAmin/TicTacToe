@@ -1,11 +1,31 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!-- DARK application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="backgroundColor">@color/backgroundDark</item>
+        <item name="baseTextColor">@color/white</item>
+        <item name="tileColor">@color/tileDark</item>
+    </style>
+
+    <style name="AppTheme.LIGHT" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/backgroundDark</item>
+
+        <item name="backgroundColor">@color/backgroundLight</item>
+        <item name="baseTextColor">@color/textGray</item>
+        <item name="tileColor">@color/tileLight</item>
+
+    </style>
+
+    <style name="NameEditText">
+        <item name="colorControlNormal">@color/backgroundDark</item>
+        <item name="colorControlActivated">@color/backgroundDark</item>
+        <item name="colorControlHighlight">@color/backgroundDark</item>
     </style>
 
 

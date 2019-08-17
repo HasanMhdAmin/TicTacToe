@@ -3,4 +3,11 @@
     <declare-styleable name="Options">
         <attr name="value" format="integer" />
     </declare-styleable>
+
+
+    <!-- background color keys -->
+    <attr name="backgroundColor" format="reference|color" />
+    <attr name="baseTextColor" format="reference|color" />
+    <attr name="tileColor" format="reference|color" />
+
 </resources>

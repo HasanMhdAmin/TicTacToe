@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="30dp"
     android:paddingStart="30dp"
+    android:paddingTop="30dp"
     android:paddingEnd="30dp"
     android:paddingBottom="10dp">
 
@@ -18,10 +18,10 @@
 
     <RelativeLayout
         android:id="@+id/textViewContainer"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/dialogTitle"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="5dp">
 
         <EditText
             android:id="@+id/name"
@@ -30,8 +30,9 @@
             android:inputType="text"
             android:maxLength="30"
             android:maxLines="1"
+            android:padding="10dp"
             android:singleLine="true"
-            android:padding="10dp" />
+            android:theme="@style/NameEditText" />
 
     </RelativeLayout>
 
@@ -41,17 +42,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewContainer"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button_background"
         android:clipToPadding="false"
         android:elevation="7dp"
-        android:layout_marginTop="25dp"
         android:padding="10dp"
-        android:layout_marginBottom="20dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="@string/save"
         android:textColor="#fff" />
-
 
 
 </RelativeLayout>

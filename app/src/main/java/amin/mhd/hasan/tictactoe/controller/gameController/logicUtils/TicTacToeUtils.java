@@ -1,4 +1,4 @@
-package amin.mhd.hasan.tictactoe.controller.gameController;
+package amin.mhd.hasan.tictactoe.controller.gameController.logicUtils;
 
 import java.util.ArrayList;
 

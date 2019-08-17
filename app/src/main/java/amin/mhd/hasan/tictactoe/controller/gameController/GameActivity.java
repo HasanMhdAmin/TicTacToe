@@ -25,10 +25,12 @@ import amin.mhd.hasan.tictactoe.callback.OnAiMakeDecisionListener;
 import amin.mhd.hasan.tictactoe.callback.OnTileClickListener;
 import amin.mhd.hasan.tictactoe.controller.endController.EndActivity;
 import amin.mhd.hasan.tictactoe.controller.endController.enums.GameResult;
+import amin.mhd.hasan.tictactoe.controller.gameController.logicUtils.TicTacToeUtils;
 import amin.mhd.hasan.tictactoe.customView.TileView;
 import amin.mhd.hasan.tictactoe.dialog.CustomProgressDialog;
 import amin.mhd.hasan.tictactoe.model.Player;
 import amin.mhd.hasan.tictactoe.utils.DateUtils;
+import amin.mhd.hasan.tictactoe.utils.ScreenUtils;
 import amin.mhd.hasan.tictactoe.utils.StorageUtils;
 import amin.mhd.hasan.tictactoe.utils.StringUtils;
 
@@ -70,6 +72,7 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        ScreenUtils.setStatusBarTranslucent(this, true);
 
         findViews();
 
