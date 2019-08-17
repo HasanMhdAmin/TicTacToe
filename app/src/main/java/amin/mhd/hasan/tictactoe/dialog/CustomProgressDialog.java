@@ -44,8 +44,7 @@ public class CustomProgressDialog extends DialogFragment {
         // Required empty public constructor
     }
 
-    // in the future when this AI will be smarter, then I'll user "mapOfThePlay"
-    // but for now I don't need it.
+
     public static CustomProgressDialog newInstance(ArrayList<Integer> xValues, ArrayList<Integer> oValues) {
         CustomProgressDialog fragment = new CustomProgressDialog();
         Bundle args = new Bundle();
