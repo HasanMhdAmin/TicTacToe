@@ -30,6 +30,7 @@ import amin.mhd.hasan.tictactoe.customView.TileView;
 import amin.mhd.hasan.tictactoe.dialog.CustomProgressDialog;
 import amin.mhd.hasan.tictactoe.model.Player;
 import amin.mhd.hasan.tictactoe.utils.DateUtils;
+import amin.mhd.hasan.tictactoe.utils.RandomUtils;
 import amin.mhd.hasan.tictactoe.utils.ScreenUtils;
 import amin.mhd.hasan.tictactoe.utils.StorageUtils;
 import amin.mhd.hasan.tictactoe.utils.StringUtils;
@@ -87,10 +88,17 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
 
     private void startGame() {
 
-        // AI player
-        playerNameTextView.setText(computer.getPlayerName());
-        currentPlayer = computer;
-        computerNextStep();
+        int randNumber = RandomUtils.getRandomIntInRange(1, 2);
+        if (randNumber == 1) {
+            // I will start first
+            playerNameTextView.setText(me.getPlayerName());
+            currentPlayer = me;
+        } else if (randNumber == 2) {
+            // AI player
+            playerNameTextView.setText(computer.getPlayerName());
+            currentPlayer = computer;
+            computerNextStep();
+        }
     }
 
     private void computerNextStep() {
@@ -140,6 +148,10 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
     public void onSelectValue(TileView tileView, ImageView imageView, int value) {
         Log.d(TAG, "onSelectValue: value: " + value);
         Log.d(TAG, "onSelectValue: currentPlayer: " + currentPlayer.getPlayerName());
+        if(me.getSelectedTiles().contains(value)||computer.getSelectedTiles().contains(value)){
+            // this means the user click on already selected tile, so i need to ignore this event.
+            return;
+        }
         if (imageView.getDrawable() == null) {
             Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
             imageView.startAnimation(animFadeIn);
