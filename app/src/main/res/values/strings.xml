@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="start_game">Start Game</string>
+    <string name="change_name">Change Name</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="your_name">Your name</string>
+    <string name="save">Save</string>
+    <string name="hi">Hi</string>
+    <string name="title_activity_end">EndActivity</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="oops">Oops!</string>
+    <string name="draw">Draw</string>
+    <string name="you_won">You won!</string>
+    <string name="you_lose">You lose!</string>
+    <string name="it_is_a_tie">it is a tie</string>
+    <string name="time_of_thinking">Time of thinking</string>
+    <string name="restart_game">Restart game</string>
+    <string name="player_2_name">Computer</string>
+    <string name="turn">Turn:</string>
+    <string name="ai_is_processing_the_next_step">AI is processing the next step.</string>
+</resources>
