@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundDark"
+    android:background="?attr/backgroundColor"
     tools:context=".controller.endController.EndActivity">
 
 
@@ -16,11 +16,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/congratulations"
-        android:textColor="@color/white"
+        android:textColor="?attr/baseTextColor"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +39,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/you_won"
-        android:textColor="@color/white"
+        android:textColor="?attr/baseTextColor"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +56,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/time_of_thinking"
-        android:textColor="@color/white"
+        android:textColor="?attr/baseTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result" />

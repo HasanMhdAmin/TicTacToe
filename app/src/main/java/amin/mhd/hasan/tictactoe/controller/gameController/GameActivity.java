@@ -70,11 +70,7 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String theme = StorageUtils.getTheme(this);
-        if (theme.equals(StorageUtils.LIGHT))
-            setTheme(R.style.AppTheme_LIGHT);
-        else
-            setTheme(R.style.AppTheme);
+        ScreenUtils.createTheam(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ScreenUtils.setStatusBarTranslucent(this, true);

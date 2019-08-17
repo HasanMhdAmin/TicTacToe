@@ -9,7 +9,7 @@
     <color name="backgroundLight">#EEEEEE</color>
     <color name="containerBackgroundDark">#333333</color>
     <color name="tileDark">#4a4a4a</color>
-    <color name="tileLight">#CECECE</color>
+    <color name="tileLight">#EEEEEE</color>
     <color name="dialogBackground">#CECECE</color>
     <color name="white">#fff</color>
     <color name="textGray">#757575</color>
