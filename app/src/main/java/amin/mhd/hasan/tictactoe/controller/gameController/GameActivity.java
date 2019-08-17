@@ -70,6 +70,11 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String theme = StorageUtils.getTheme(this);
+        if (theme.equals(StorageUtils.LIGHT))
+            setTheme(R.style.AppTheme_LIGHT);
+        else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ScreenUtils.setStatusBarTranslucent(this, true);
@@ -111,8 +116,14 @@ public class GameActivity extends AppCompatActivity implements OnTileClickListen
         playerNameTextView = findViewById(R.id.playerNameTextView);
         setOnClickListenerForAllTileViews(root);
 
+        int boldColor;
+        String theme = StorageUtils.getTheme(this);
+        if (theme.equals(StorageUtils.LIGHT))
+            boldColor = R.color.backgroundDark;
+        else
+            boldColor = R.color.white;
         Spannable result = StringUtils.spannableString(gameTitle.getText(), "AI",
-                true, true, ContextCompat.getColor(this, R.color.white));
+                true, true, ContextCompat.getColor(this, boldColor));
         gameTitle.setText(result);
     }
 

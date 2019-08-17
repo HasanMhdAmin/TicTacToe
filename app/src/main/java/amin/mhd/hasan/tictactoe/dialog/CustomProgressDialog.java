@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import amin.mhd.hasan.tictactoe.R;
 import amin.mhd.hasan.tictactoe.callback.OnAiMakeDecisionListener;
 import amin.mhd.hasan.tictactoe.utils.RandomUtils;
+import amin.mhd.hasan.tictactoe.utils.StorageUtils;
 import amin.mhd.hasan.tictactoe.utils.StringUtils;
 
 /**
@@ -73,8 +74,14 @@ public class CustomProgressDialog extends DialogFragment {
         findViews(view);
 
         if (getContext() != null) {
+            int boldColor;
+            String theme = StorageUtils.getTheme(getContext());
+            if (theme.equals(StorageUtils.LIGHT))
+                boldColor = R.color.backgroundDark;
+            else
+                boldColor = R.color.white;
             Spannable spannable = StringUtils.spannableString(progressText.getText(), "AI",
-                    true, true, ContextCompat.getColor(getContext(), R.color.white));
+                    true, true, ContextCompat.getColor(getContext(), boldColor));
             progressText.setText(spannable);
         }
 
