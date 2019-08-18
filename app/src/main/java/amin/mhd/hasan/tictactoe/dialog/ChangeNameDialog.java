@@ -2,7 +2,14 @@ package amin.mhd.hasan.tictactoe.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +20,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.DialogFragment;
 
 import amin.mhd.hasan.tictactoe.R;
@@ -54,10 +62,32 @@ public class ChangeNameDialog extends DialogFragment implements View.OnClickList
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_change_name, container, false);
-
+        setCancelable(false);
         findViews(view);
 
         nameEditText.setText(name);
+        nameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                ColorStateList colorStateList;
+                if (charSequence.length() > 0)
+                    colorStateList = ColorStateList.valueOf(Color.BLACK);
+                else
+                    colorStateList = ColorStateList.valueOf(Color.RED);
+                ViewCompat.setBackgroundTintList(nameEditText, colorStateList);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         return view;
     }
@@ -119,7 +149,31 @@ public class ChangeNameDialog extends DialogFragment implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == save) {
-            onSaveClicked(nameEditText.getText().toString());
+            if (isInputValid())
+                onSaveClicked(nameEditText.getText().toString());
         }
+    }
+
+    private boolean isInputValid() {
+        if (nameEditText.getText().length() == 0) {
+            ColorStateList colorStateList = ColorStateList.valueOf(Color.RED);
+            ViewCompat.setBackgroundTintList(nameEditText, colorStateList);
+
+            Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+            // Vibrate for 200 milliseconds
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (vib != null) {
+                    vib.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
+                }
+            } else {
+                //deprecated in API 26
+                if (vib != null) {
+                    vib.vibrate(100);
+                }
+            }
+
+            return false;
+        }
+        return true;
     }
 }

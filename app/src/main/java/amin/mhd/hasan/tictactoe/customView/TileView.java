@@ -19,14 +19,12 @@ public class TileView extends FrameLayout implements View.OnClickListener {
     private int value;
     private FrameLayout tile;
     private ImageView tileImage;
-    private Context context;
 
     private OnTileClickListener onTileClickListener;
 
     public TileView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        this.context = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.Options, 0, 0);
 
