@@ -71,6 +71,7 @@ public class InitActivity extends AppCompatActivity implements View.OnClickListe
                     StorageUtils.setTheme(InitActivity.this, StorageUtils.LIGHT);
                 }
                 finish();
+                overridePendingTransition(R.anim.fade_in, android.R.anim.fade_out);
                 startActivity(getIntent());
             }
         });
