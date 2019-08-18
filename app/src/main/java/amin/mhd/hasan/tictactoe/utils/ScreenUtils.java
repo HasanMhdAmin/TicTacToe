@@ -19,7 +19,7 @@ public class ScreenUtils {
         }
     }
 
-    public static void createTheam(Context context){
+    public static void createTheme(Context context){
         String theme = StorageUtils.getTheme(context);
         if (theme.equals(StorageUtils.LIGHT))
             context.setTheme(R.style.AppTheme_LIGHT);

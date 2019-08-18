@@ -40,7 +40,7 @@ public class InitActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ScreenUtils.createTheam(this);
+        ScreenUtils.createTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_init);
         ScreenUtils.setStatusBarTranslucent(this, true);
@@ -55,7 +55,7 @@ public class InitActivity extends AppCompatActivity implements View.OnClickListe
             String welcomeMessage = getString(R.string.hi) + ", " + playerName;
             welcome.setText(welcomeMessage);
         }
-        
+
         String theme = StorageUtils.getTheme(this);
         if (theme.equals(StorageUtils.LIGHT))
             darkModeCheckBox.setChecked(false);

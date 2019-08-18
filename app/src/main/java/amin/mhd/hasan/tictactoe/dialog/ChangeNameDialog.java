@@ -66,6 +66,7 @@ public class ChangeNameDialog extends DialogFragment implements View.OnClickList
         findViews(view);
 
         nameEditText.setText(name);
+        nameEditText.setSelection(nameEditText.getText().length());// but the cursor in the end
         nameEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

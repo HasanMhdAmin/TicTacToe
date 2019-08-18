@@ -13,7 +13,6 @@ import amin.mhd.hasan.tictactoe.controller.endController.enums.GameResult;
 import amin.mhd.hasan.tictactoe.controller.gameController.GameActivity;
 import amin.mhd.hasan.tictactoe.utils.DateUtils;
 import amin.mhd.hasan.tictactoe.utils.ScreenUtils;
-import amin.mhd.hasan.tictactoe.utils.StorageUtils;
 
 import static amin.mhd.hasan.tictactoe.controller.endController.enums.Keys.GAME_RESULT;
 import static amin.mhd.hasan.tictactoe.controller.endController.enums.Keys.TIME_OF_THINKING;
@@ -39,7 +38,7 @@ public class EndActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ScreenUtils.createTheam(this);
+        ScreenUtils.createTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end);
         ScreenUtils.setStatusBarTranslucent(this, true);
